@@ -26,6 +26,14 @@ WHERE Letter.refLetter_id =  $passedID AND Letter.refLetter_FKstudent_uniqname =
 
 </head>
 <body>
+<script type="text/javascript">
+$(document).ready( function(){
+  var host = window.location.hostname;
+  if (host === "csgrsmoke.lsait.lsa.umich.edu"){
+    $('body').prepend("<div class='bg-danger text-center'>THIS IS A DEVELOPMENT ENVIRONMENT -- THIS IS A DEVELOPMENT ENVIRONMENT -- THIS IS A DEVELOPMENT ENVIRONMENT -- THIS IS A DEVELOPMENT ENVIRONMENT </div>");
+  }
+});
+</script>
 <div id="Container">
 	<div id="MainContent">
 	<div id="Banner"><a href="http://www.lsa.umich.edu/<?php echo strtolower("$deptShtName");?>"><img src="../images/banner<?php echo "$deptShtName";?>.png" alt="<?php echo "$deptLngName";?> Home page" /></a></div>
