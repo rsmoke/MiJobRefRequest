@@ -1,6 +1,5 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configMiRefLetV2.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,68 +12,91 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configMiRefLetV2.php';
   <meta name="keywords" content="LSA, Reference, Letter, UniversityofMichigan">
   <meta name="author" content="LSA-MIS_rsmoke">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <style>
-    html {
-      background: url(images/maintainImage.png) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/maintainImage.png', sizingMethod='scale');
-      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/maintainImage.png', sizingMethod='scale')";
-    }
-    body {
-      margin: 0;
-    }
-    #contentwrapper {
-      text-align: center;
-    }
-    #container {
-      display: inline-block;
-      overflow: hidden;
-      min-width: 250px;
-      min-height: 200px;
-    }
-    .header-center {
-      color: black;
-      font-weight: bold;
-      text-align: center;
-    }
-    footer {
-      position: fixed;
-      bottom: 10px;
-      width: 100%;
-      min-width: 250px;
-      overflow: hidden;
-      text-align:center;
-      background-color: #ddd;
-      font-size: small;
-    }
-    .footeritem {
-      width: calc(100% / 4);
-      display: inline-block;
-      vertical-align: top;
-      text-align:center;
-      padding:10px;
-    }
-    .clearfix {
-      clear: both;
-    }
-    a {
-      background-color: white;
-    }
-  </style>
-</head>
-<body>
-<div id="contentwrapper">
-  <div id="container">
+    <style type="text/css">
+      .Site {
+        background: url(./images/maintainImage.png) no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    <h1 class="header-center">The <?php echo "$siteTitle";?> is currently not available.<br>Please
-      check back.</h1>
-  </div>
-  <div class="clearfix"></div>
-<?php include './php/footer.php' ?>
+      header {
+        text-shadow: 0px 1px 0px rgb(204, 204, 204), 0px 2px 0px rgb(201, 201, 201), 0px 3px 0px rgb(187, 187, 187), 0px 4px 0px rgb(185, 185, 185), 0px 5px 0px rgb(170, 170, 170), 0px 6px 1px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.25), 0px 20px 20px rgba(0, 0, 0, 0.15);
+        color: #0022CC;
+        font-family: 'League Gothic', Impact, sans-serif;
+        line-height: 1.2em;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin: 1em auto;
+        text-align: center;
+        font-size: 1.2rem;
+        padding-top: 10px;
+        font-size: 2.5rem;
+        text-align: center;
+      }
 
-</div>
+      .Site-content {
+        flex: 1;
+      }
+
+      footer {
+        width: 50%;
+        background-color: #FFFAFE;
+        border: 1px solid gray;
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap-reverse;
+      }
+
+      address {
+        flex-grow: 1;
+      }
+
+      .dept_name {
+        font-size: 1.4rem;
+        text-shadow: 0px 1px 0px rgb(204, 204, 204), 0px 2px 0px rgb(201, 201, 201), 0px 3px 0px rgb(187, 187, 187), 0px 4px 0px rgb(185, 185, 185), 0px 5px 0px rgb(170, 170, 170), 0px 6px 1px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.25), 0px 20px 20px rgba(0, 0, 0, 0.15);
+        color: #000066;
+      }
+
+      .email_address {
+        font-size: .9rem;
+      }
+
+      .lsa_img {
+        width: 200px;
+        height: 32px;
+        align-self: center;
+        flex-shrink: 1;
+      }
+
+      .copyright {
+        background-color: #FFFAFE;
+        border: 1px solid gray;
+        flex-direction: row;
+        padding-bottom: 10px;
+        align-self: auto;
+      }
+    </style>
+  <body class="Site">
+  <header>The <?php echo $siteTitle;?><br> is currently not available.<br>Please check back.</header>
+
+  <main class="Site-content"></main>
+
+  <footer>
+    <address>
+      <div class="dept_name">Department of <?php echo $deptLngName;?></div>
+      <a class="email_address" href="mailto:<?php echo strtolower($addressEmail);?>"><?php echo strtolower($addressEmail);?></a>
+      <div><?php echo $addressBldg;?>, <?php echo $address2;?></div>
+      <div><?php echo $addressStreet;?></div>
+      <div>Ann Arbor, MI</div>
+      <div><?php echo $addressZip;?></div>
+      <div>P: <?php echo $addressPhone;?></div>
+    </address>
+      <img class="lsa_img" src="https://lsa.umich.edu/content/dam/lsa-site-assets/images/images/logos-colors/LSA_logo_1000.png" alt="LSA at the University of Michigan">
+  </footer>
+        <a class="copyright" href="http://www.regents.umich.edu">© 2016 Regents of the University of Michigan</a>
 </body>
 </html>
